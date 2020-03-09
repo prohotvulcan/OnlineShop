@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "olShop.DomainLayer", "olShop.DomainLayer", "{B80124E1-B81D-4A0F-B8CA-53412170FC27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "olShop.Data", "olShop.Data\olShop.Data.csproj", "{3A64FAC1-7A78-495A-8EB4-92731CCC9035}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "olShop.Data.EF", "olShop.Data.EF\olShop.Data.EF.csproj", "{CC16C527-EAAD-481B-B121-FBB66C83028E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "olShop.ApplicationLayer", "olShop.ApplicationLayer", "{9276F65D-D7FB-4702-862F-E3E4CD869631}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "olShop.InfrastructureLayer", "olShop.InfrastructureLayer", "{7DEB07EE-29EB-46B3-A34F-2EB931FC7E60}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "olShop.PresentationLayer", "olShop.PresentationLayer", "{3417356B-9049-4155-8B4E-3D2AE6B79AAF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A64FAC1-7A78-495A-8EB4-92731CCC9035}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A64FAC1-7A78-495A-8EB4-92731CCC9035}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A64FAC1-7A78-495A-8EB4-92731CCC9035}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A64FAC1-7A78-495A-8EB4-92731CCC9035}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC16C527-EAAD-481B-B121-FBB66C83028E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC16C527-EAAD-481B-B121-FBB66C83028E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC16C527-EAAD-481B-B121-FBB66C83028E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC16C527-EAAD-481B-B121-FBB66C83028E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3A64FAC1-7A78-495A-8EB4-92731CCC9035} = {B80124E1-B81D-4A0F-B8CA-53412170FC27}
+		{CC16C527-EAAD-481B-B121-FBB66C83028E} = {B80124E1-B81D-4A0F-B8CA-53412170FC27}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {23BB18B3-18FE-47FC-9675-4DB59E6F4FC2}
+	EndGlobalSection
+EndGlobal
