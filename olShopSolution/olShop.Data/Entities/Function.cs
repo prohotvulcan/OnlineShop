@@ -1,6 +1,7 @@
 ﻿using olShop.Data.Enums;
 using olShop.Data.Interfaces;
 using olShop.Infrastructure.SharedKernel;
+using System.Collections.Generic;
 
 namespace olShop.Data.Entities
 {
@@ -17,6 +18,8 @@ namespace olShop.Data.Entities
         public int SortOrder { get; set; }
 
         public Status Status { get; set; }
+
+        public List<Permission> Permissions { get; set; }
 
         public Function()
         {

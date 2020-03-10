@@ -38,6 +38,8 @@ namespace olShop.Data.Entities
 
         public List<ProductTag> ProductTags { get; set; }
 
+        public List<BillDetail> BillDetails { get; set; }
+
         public string SeoPageTitle { get; set; }
 
         public string SeoAlias { get; set; }

@@ -2,6 +2,7 @@
 using olShop.Data.Enums;
 using olShop.Data.Interfaces;
 using System;
+using System.Collections.Generic;
 
 namespace olShop.Data.Entities
 {
@@ -20,6 +21,10 @@ namespace olShop.Data.Entities
         public DateTime DateModified { get; set; }
 
         public Status Status { get; set; }
+
+        public List<Announcement> Announcements { get; set; }
+
+        public List<Bill> Bills { get; set; }
 
         public AppUser()
         {

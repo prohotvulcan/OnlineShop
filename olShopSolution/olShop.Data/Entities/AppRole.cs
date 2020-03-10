@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
+using System.Collections.Generic;
 
 namespace olShop.Data.Entities
 {
@@ -16,5 +17,7 @@ namespace olShop.Data.Entities
         }
 
         public string Description { get; set; }
+
+        public List<Permission> Permissions { get; set; }
     }
 }

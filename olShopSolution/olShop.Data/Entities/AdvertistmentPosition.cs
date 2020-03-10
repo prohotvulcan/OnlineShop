@@ -9,7 +9,7 @@ namespace olShop.Data.Entities
 
         public string Name { get; set; }
 
-        public Advertistment Advertistment { get; set; }
+        public AdvertistmentPage AdvertistmentPage { get; set; }
 
         public List<Advertistment> Advertistments { get; set; }
     }
