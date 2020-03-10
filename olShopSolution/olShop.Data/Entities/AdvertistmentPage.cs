@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using olShop.Infrastructure.SharedKernel;
+using System.Collections.Generic;
 
 namespace olShop.Data.Entities
 {
-    public class AdvertistmentPage
+    public class AdvertistmentPage : DomainEntity<string>
     {
         public string Name { get; set; }
 

@@ -1,8 +1,9 @@
-﻿using System;
+﻿using olShop.Infrastructure.SharedKernel;
+using System;
 
 namespace olShop.Data.Entities
 {
-    public class AnnouncementUser
+    public class AnnouncementUser : DomainEntity<int>
     {
         public string AnnouncementId { get; set; }
 

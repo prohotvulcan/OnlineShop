@@ -2,14 +2,14 @@
 
 namespace olShop.Data.Entities
 {
-    public class ProductTag : DomainEntity<int>
+    public class ProductImage : DomainEntity<int>
     {
         public int ProductId { get; set; }
 
-        public string TagId { get; set; }
-
         public Product Product { get; set; }
 
-        public Tag Tag { get; set; }
+        public string Path { get; set; }
+
+        public string Caption { get; set; }
     }
 }

@@ -1,10 +1,12 @@
 ﻿using olShop.Data.Enums;
+using olShop.Data.Interfaces;
+using olShop.Infrastructure.SharedKernel;
 using System;
 using System.Collections.Generic;
 
 namespace olShop.Data.Entities
 {
-    public class Announcement
+    public class Announcement : DomainEntity<string>, IDateTracking, ISwitchable
     {
         public string Title { get; set; }
 

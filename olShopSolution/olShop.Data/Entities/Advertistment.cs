@@ -1,10 +1,11 @@
 ﻿using olShop.Data.Enums;
+using olShop.Data.Interfaces;
+using olShop.Infrastructure.SharedKernel;
 using System;
-using System.Collections.Generic;
 
 namespace olShop.Data.Entities
 {
-    public class Advertistment
+    public class Advertistment : DomainEntity<int>, ISwitchable, ISortable
     {
         public string Name { get; set; }
 
@@ -24,7 +25,7 @@ namespace olShop.Data.Entities
 
         public int SortOrder { get; set; }
 
-        public List<AdvertistmentPosition> AdvertistmentPositions { get; set; }
+        public AdvertistmentPosition AdvertistmentPosition { get; set; }
 
     }
 }
