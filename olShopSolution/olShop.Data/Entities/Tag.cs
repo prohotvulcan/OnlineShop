@@ -10,5 +10,7 @@ namespace olShop.Data.Entities
         public string Type { get; set; }
 
         public List<BlogTag> BlogTags { get; set; }
+
+        public List<ProductTag> ProductTags { get; set; }
     }
 }

@@ -4,28 +4,26 @@ using olShop.Data.Entities;
 
 namespace olShop.Data.EF.Configurations
 {
-    public class FunctionConfiguration : IEntityTypeConfiguration<Function>
+    public class TagConfiguration : IEntityTypeConfiguration<Tag>
     {
-        public void Configure(EntityTypeBuilder<Function> builder)
+        public void Configure(EntityTypeBuilder<Tag> builder)
         {
-            builder.ToTable("Functions");
+            builder.ToTable("Tags");
 
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Id)
+                .HasMaxLength(50)
                 .IsRequired(true)
-                .HasMaxLength(128)
                 .IsUnicode(false);
 
             builder.Property(x => x.Name)
-                .HasMaxLength(128)
+                .HasMaxLength(50)
                 .IsRequired(true);
 
-            builder.Property(x => x.URL)
-                .HasMaxLength(250)
+            builder.Property(x => x.Type)
+                .HasMaxLength(50)
                 .IsRequired(true);
-
-            builder.Property(x => x.ParentId).HasMaxLength(128);
         }
     }
 }

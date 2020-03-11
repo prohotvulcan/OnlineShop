@@ -12,6 +12,12 @@ namespace olShop.Data.EF.Configurations
 
             builder.HasKey(x => x.Id);
 
+            builder.Property(x => x.TagId)
+                .HasMaxLength(50)
+                .IsRequired(true)
+                .IsUnicode(false)
+                .HasMaxLength(50);
+
             builder.HasOne(x => x.Blog)
                 .WithMany(y => y.BlogTags)
                 .HasForeignKey(x => x.BlogId);

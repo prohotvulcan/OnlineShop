@@ -12,6 +12,10 @@ namespace olShop.Data.EF.Configurations
 
             builder.HasKey(x => x.Id);
 
+            builder.Property(x => x.Id)
+                .HasMaxLength(255)
+                .IsRequired(true);
+
             builder.Property(x => x.Name)
                 .HasMaxLength(256)
                 .IsRequired(true);

@@ -4,20 +4,21 @@ using olShop.Data.Entities;
 
 namespace olShop.Data.EF.Configurations
 {
-    public class FooterConfiguration : IEntityTypeConfiguration<Footer>
+    public class SystemConfigConfiguration : IEntityTypeConfiguration<SystemConfig>
     {
-        public void Configure(EntityTypeBuilder<Footer> builder)
+        public void Configure(EntityTypeBuilder<SystemConfig> builder)
         {
-            builder.ToTable("Footers");
+            builder.ToTable("SystemConfigs");
 
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Id)
                 .HasMaxLength(255)
-                .IsUnicode(false)
                 .IsRequired(true);
 
-            builder.Property(x => x.Content).IsRequired(true);
+            builder.Property(x => x.Name)
+                .HasMaxLength(128)
+                .IsRequired(true);
         }
     }
 }

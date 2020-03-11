@@ -10,5 +10,7 @@ namespace olShop.Data.Entities
         public string Code { get; set; }
 
         public List<BillDetail> BillDetails { get; set; }
+
+        public List<ProductQuantity> ProductQuantities { get; set; }
     }
 }

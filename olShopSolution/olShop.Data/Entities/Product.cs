@@ -40,6 +40,12 @@ namespace olShop.Data.Entities
 
         public List<BillDetail> BillDetails { get; set; }
 
+        public List<ProductImage> ProductImages { get; set; }
+
+        public List<ProductQuantity> ProductQuantities { get; set; }
+
+        public List<WholePrice> WholePrices { get; set; }
+
         public string SeoPageTitle { get; set; }
 
         public string SeoAlias { get; set; }
