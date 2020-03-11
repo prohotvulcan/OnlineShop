@@ -4,7 +4,6 @@ using olShop.Data.Entities;
 using olShop.Data.Enums;
 using olShop.Utilities.Constants;
 using System;
-using System.Collections.Generic;
 
 namespace olShop.Data.EF.Extensions
 {
@@ -115,9 +114,9 @@ namespace olShop.Data.EF.Extensions
 
             // advertistment position
             modelBuilder.Entity<AdvertistmentPosition>().HasData(
-                new List<AdvertistmentPosition> { new AdvertistmentPosition { Id = "home-left", PageId = "home", Name = "Bên trái" } },
-                new List<AdvertistmentPosition> { new AdvertistmentPosition { Id = "product-cate-left", PageId = "product-cate", Name = "Bên trái" } },
-                new List<AdvertistmentPosition> { new AdvertistmentPosition { Id = "product-detail-left", PageId = "product-detail", Name = "Bên trái" } });
+                new AdvertistmentPosition { Id = "home-left", PageId = "home", Name = "Bên trái" },
+                new AdvertistmentPosition { Id = "product-cate-left", PageId = "product-cate", Name = "Bên trái" },
+                new AdvertistmentPosition { Id = "product-detail-left", PageId = "product-detail", Name = "Bên trái" });
 
             // slide
             modelBuilder.Entity<Slide>().HasData(
