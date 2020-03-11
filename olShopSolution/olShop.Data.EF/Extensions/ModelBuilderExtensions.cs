@@ -12,6 +12,7 @@ namespace olShop.Data.EF.Extensions
     {
         public static void SeedData(this ModelBuilder modelBuilder)
         {
+            // role
             var adminRoleId = new Guid("AF186D00-6D93-4721-AC73-46A8D968C8ED");
             modelBuilder.Entity<AppRole>().HasData(
                 new AppRole
@@ -22,6 +23,7 @@ namespace olShop.Data.EF.Extensions
                     Description = "Top manager"
                 });
 
+            // user
             var hasher = new PasswordHasher<AppUser>();
             var adminId = new Guid("A389BFC2-ED92-4FB5-8705-FD0CB5B48B48");
             modelBuilder.Entity<AppUser>().HasData(
@@ -41,6 +43,14 @@ namespace olShop.Data.EF.Extensions
                     Birthday = new DateTime(1993, 3, 3)
                 });
 
+            // user role
+            modelBuilder.Entity<IdentityUserRole<Guid>>().HasData(new IdentityUserRole<Guid> 
+            {
+                RoleId = adminRoleId, 
+                UserId = adminId 
+            });
+
+            // contact
             modelBuilder.Entity<Contact>().HasData(
                 new Contact
                 {
@@ -55,6 +65,7 @@ namespace olShop.Data.EF.Extensions
                     Lng = 105.7763564
                 });
 
+            // function
             modelBuilder.Entity<Function>().HasData(
                 new Function { Id = "SYSTEM", Name = "System", ParentId = null, SortOrder = 1, Status = Status.Active, URL = "/", IconCss = "fa-desktop" },
                 new Function { Id = "ROLE", Name = "Role", ParentId = "SYSTEM", SortOrder = 1, Status = Status.Active, URL = "/admin/role/index", IconCss = "fa-home" },
@@ -86,44 +97,29 @@ namespace olShop.Data.EF.Extensions
                 new Function { Id = "ACCESS", Name = "Visitor Report", ParentId = "REPORT", SortOrder = 2, Status = Status.Active, URL = "/admin/report/visitor", IconCss = "fa-bar-chart-o" },
                 new Function { Id = "READER", Name = "Reader Report", ParentId = "REPORT", SortOrder = 3, Status = Status.Active, URL = "/admin/report/reader", IconCss = "fa-bar-chart-o" });
 
-            modelBuilder.Entity<Footer>().HasData(
-                new Footer { Id = CommonContants.DefaultFooterId, Content = "Footer" });
+            // footer
+            modelBuilder.Entity<Footer>().HasData(new Footer { Id = CommonContants.DefaultFooterId, Content = "Footer" });
 
+            // color
             modelBuilder.Entity<Color>().HasData(
                 new Color { Name = "Black", Code = "#000000" },
                 new Color { Name = "White", Code = "#FFFFFF" },
                 new Color { Name = "Red", Code = "#ff0000" },
                 new Color { Name = "Blue", Code = "#1000ff" });
 
+            // advertistment page
             modelBuilder.Entity<AdvertistmentPage>().HasData(
-                new AdvertistmentPage
-                {
-                    Id = "home",
-                    Name = "Home",
-                    AdvertistmentPositions = new List<AdvertistmentPosition>
-                    {
-                        new AdvertistmentPosition { Id = "home-left", Name = "Bên trái" }
-                    }
-                },
-                new AdvertistmentPage()
-                {
-                    Id = "product-cate",
-                    Name = "Product category",
-                    AdvertistmentPositions = new List<AdvertistmentPosition>
-                    {
-                        new AdvertistmentPosition { Id = "product-cate-left", Name = "Bên trái" }
-                    }
-                },
-                new AdvertistmentPage()
-                {
-                    Id = "product-detail",
-                    Name = "Product detail",
-                    AdvertistmentPositions = new List<AdvertistmentPosition>
-                    {
-                        new AdvertistmentPosition { Id = "product-detail-left", Name = "Bên trái" }
-                    }
-                });
+                new AdvertistmentPage { Id = "home", Name = "Home" },
+                new AdvertistmentPage { Id = "product-cate", Name = "Product category" },
+                new AdvertistmentPage { Id = "product-detail", Name = "Product detail" });
 
+            // advertistment position
+            modelBuilder.Entity<AdvertistmentPosition>().HasData(
+                new List<AdvertistmentPosition> { new AdvertistmentPosition { Id = "home-left", PageId = "home", Name = "Bên trái" } },
+                new List<AdvertistmentPosition> { new AdvertistmentPosition { Id = "product-cate-left", PageId = "product-cate", Name = "Bên trái" } },
+                new List<AdvertistmentPosition> { new AdvertistmentPosition { Id = "product-detail-left", PageId = "product-detail", Name = "Bên trái" } });
+
+            // slide
             modelBuilder.Entity<Slide>().HasData(
                 new Slide { Name = "Slide 1", Image = "/client-side/images/slider/slide-1.jpg", Url = "#", DisplayOrder = 0, GroupAlias = "top", Status = true },
                 new Slide { Name = "Slide 2", Image = "/client-side/images/slider/slide-2.jpg", Url = "#", DisplayOrder = 1, GroupAlias = "top", Status = true },
@@ -141,6 +137,7 @@ namespace olShop.Data.EF.Extensions
                 new Slide { Name = "Slide 10", Image = "/client-side/images/brand10.png", Url = "#", DisplayOrder = 10, GroupAlias = "brand", Status = true },
                 new Slide { Name = "Slide 11", Image = "/client-side/images/brand11.png", Url = "#", DisplayOrder = 11, GroupAlias = "brand", Status = true });
 
+            // size
             modelBuilder.Entity<Size>().HasData(
                 new Size { Name = "XXL" },
                 new Size { Name = "XL" },
@@ -149,72 +146,72 @@ namespace olShop.Data.EF.Extensions
                 new Size { Name = "S" },
                 new Size { Name = "XS" });
 
+            // product category
             modelBuilder.Entity<ProductCategory>().HasData(
                 new ProductCategory
                 {
+                    Id = 1,
                     Name = "Men shirt",
                     SeoAlias = "men-shirt",
                     ParentId = null,
                     Status = Status.Active,
-                    SortOrder = 1,
-                    Products = new List<Product>
-                    {
-                        new Product {Name = "Product 1",DateCreated=DateTime.Now,Image="/client-side/images/products/product-1.jpg",SeoAlias = "san-pham-1",Price = 1000,Status = Status.Active,OriginalPrice = 1000},
-                        new Product {Name = "Product 2",DateCreated=DateTime.Now,Image="/client-side/images/products/product-1.jpg",SeoAlias = "san-pham-2",Price = 1000,Status = Status.Active,OriginalPrice = 1000},
-                        new Product {Name = "Product 3",DateCreated=DateTime.Now,Image="/client-side/images/products/product-1.jpg",SeoAlias = "san-pham-3",Price = 1000,Status = Status.Active,OriginalPrice = 1000},
-                        new Product {Name = "Product 4",DateCreated=DateTime.Now,Image="/client-side/images/products/product-1.jpg",SeoAlias = "san-pham-4",Price = 1000,Status = Status.Active,OriginalPrice = 1000},
-                        new Product {Name = "Product 5",DateCreated=DateTime.Now,Image="/client-side/images/products/product-1.jpg",SeoAlias = "san-pham-5",Price = 1000,Status = Status.Active,OriginalPrice = 1000},
-                    }
+                    SortOrder = 1
                 },
                 new ProductCategory
                 {
+                    Id = 2,
                     Name = "Women shirt",
                     SeoAlias = "women-shirt",
                     ParentId = null,
                     Status = Status.Active,
-                    SortOrder = 2,
-                    Products = new List<Product>
-                    {
-                        new Product {Name = "Product 6",DateCreated=DateTime.Now,Image="/client-side/images/products/product-1.jpg",SeoAlias = "san-pham-6",Price = 1000,Status = Status.Active,OriginalPrice = 1000},
-                        new Product {Name = "Product 7",DateCreated=DateTime.Now,Image="/client-side/images/products/product-1.jpg",SeoAlias = "san-pham-7",Price = 1000,Status = Status.Active,OriginalPrice = 1000},
-                        new Product {Name = "Product 8",DateCreated=DateTime.Now,Image="/client-side/images/products/product-1.jpg",SeoAlias = "san-pham-8",Price = 1000,Status = Status.Active,OriginalPrice = 1000},
-                        new Product {Name = "Product 9",DateCreated=DateTime.Now,Image="/client-side/images/products/product-1.jpg",SeoAlias = "san-pham-9",Price = 1000,Status = Status.Active,OriginalPrice = 1000},
-                        new Product {Name = "Product 10",DateCreated=DateTime.Now,Image="/client-side/images/products/product-1.jpg",SeoAlias = "san-pham-10",Price = 1000,Status = Status.Active,OriginalPrice = 1000},
-                    }
+                    SortOrder = 2
                 },
                 new ProductCategory
                 {
+                    Id = 3,
                     Name = "Men shoes",
                     SeoAlias = "men-shoes",
                     ParentId = null,
                     Status = Status.Active,
-                    SortOrder = 3,
-                    Products = new List<Product>
-                    {
-                        new Product {Name = "Product 11",DateCreated=DateTime.Now,Image="/client-side/images/products/product-1.jpg",SeoAlias = "san-pham-11",Price = 1000,Status = Status.Active,OriginalPrice = 1000},
-                        new Product {Name = "Product 12",DateCreated=DateTime.Now,Image="/client-side/images/products/product-1.jpg",SeoAlias = "san-pham-12",Price = 1000,Status = Status.Active,OriginalPrice = 1000},
-                        new Product {Name = "Product 13",DateCreated=DateTime.Now,Image="/client-side/images/products/product-1.jpg",SeoAlias = "san-pham-13",Price = 1000,Status = Status.Active,OriginalPrice = 1000},
-                        new Product {Name = "Product 14",DateCreated=DateTime.Now,Image="/client-side/images/products/product-1.jpg",SeoAlias = "san-pham-14",Price = 1000,Status = Status.Active,OriginalPrice = 1000},
-                        new Product {Name = "Product 15",DateCreated=DateTime.Now,Image="/client-side/images/products/product-1.jpg",SeoAlias = "san-pham-15",Price = 1000,Status = Status.Active,OriginalPrice = 1000},
-                    }
+                    SortOrder = 3
                 },
                 new ProductCategory
                 {
+                    Id = 4,
                     Name = "Woment shoes",
                     SeoAlias = "women-shoes",
                     ParentId = null,
                     Status = Status.Active,
-                    SortOrder = 4,
-                    Products = new List<Product>
-                    {
-                        new Product {Name = "Product 16",DateCreated=DateTime.Now, Image="/client-side/images/products/product-1.jpg",SeoAlias = "san-pham-16",Price = 1000,Status = Status.Active,OriginalPrice = 1000},
-                        new Product {Name = "Product 17",DateCreated=DateTime.Now,Image="/client-side/images/products/product-1.jpg",SeoAlias = "san-pham-17",Price = 1000,Status = Status.Active,OriginalPrice = 1000},
-                        new Product {Name = "Product 18",DateCreated=DateTime.Now,Image="/client-side/images/products/product-1.jpg",SeoAlias = "san-pham-18",Price = 1000,Status = Status.Active,OriginalPrice = 1000},
-                        new Product {Name = "Product 19",DateCreated=DateTime.Now,Image="/client-side/images/products/product-1.jpg",SeoAlias = "san-pham-19",Price = 1000,Status = Status.Active,OriginalPrice = 1000},
-                        new Product {Name = "Product 20",DateCreated=DateTime.Now,Image="/client-side/images/products/product-1.jpg",SeoAlias = "san-pham-20",Price = 1000,Status = Status.Active,OriginalPrice = 1000},
-                    }
+                    SortOrder = 4
                 });
 
+            // product
+            modelBuilder.Entity<Product>().HasData(
+                new Product { CategoryId = 1, Name = "Product 1", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-1", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
+                new Product { CategoryId = 1, Name = "Product 2", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-2", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
+                new Product { CategoryId = 1, Name = "Product 3", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-3", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
+                new Product { CategoryId = 1, Name = "Product 4", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-4", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
+                new Product { CategoryId = 1, Name = "Product 5", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-5", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
+
+                new Product { CategoryId = 2, Name = "Product 6", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-6", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
+                new Product { CategoryId = 2, Name = "Product 7", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-7", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
+                new Product { CategoryId = 2, Name = "Product 8", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-8", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
+                new Product { CategoryId = 2, Name = "Product 9", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-9", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
+                new Product { CategoryId = 2, Name = "Product 10", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-10", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
+
+                new Product { CategoryId = 3, Name = "Product 11", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-11", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
+                new Product { CategoryId = 3, Name = "Product 12", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-12", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
+                new Product { CategoryId = 3, Name = "Product 13", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-13", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
+                new Product { CategoryId = 3, Name = "Product 14", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-14", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
+                new Product { CategoryId = 3, Name = "Product 15", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-15", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
+
+                new Product { CategoryId = 4, Name = "Product 16", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-16", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
+                new Product { CategoryId = 4, Name = "Product 17", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-17", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
+                new Product { CategoryId = 4, Name = "Product 18", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-18", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
+                new Product { CategoryId = 4, Name = "Product 19", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-19", Price = 1000, Status = Status.Active, OriginalPrice = 1000 },
+                new Product { CategoryId = 4, Name = "Product 20", DateCreated = DateTime.Now, Image = "/client-side/images/products/product-1.jpg", SeoAlias = "san-pham-20", Price = 1000, Status = Status.Active, OriginalPrice = 1000 });
+
+            // system config
             modelBuilder.Entity<SystemConfig>().HasData(
                 new SystemConfig
                 {
