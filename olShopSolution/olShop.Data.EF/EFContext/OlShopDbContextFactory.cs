@@ -5,9 +5,9 @@ using System.IO;
 
 namespace olShop.Data.EF.EFContext
 {
-    public class DbContextFactory : IDesignTimeDbContextFactory<DbContext>
+    public class OlShopDbContextFactory : IDesignTimeDbContextFactory<OlShopDbContext>
     {
-        public DbContext CreateDbContext(string[] args)
+        public OlShopDbContext CreateDbContext(string[] args)
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
@@ -15,11 +15,11 @@ namespace olShop.Data.EF.EFContext
                 .Build();
 
             var connectionString = configuration.GetConnectionString("olShopSolutionDb");
-            var optionsBuilder = new DbContextOptionsBuilder<DbContext>();
+            var optionsBuilder = new DbContextOptionsBuilder<OlShopDbContext>();
             
             optionsBuilder.UseSqlServer(connectionString);
 
-            return new DbContext(optionsBuilder.Options);
+            return new OlShopDbContext(optionsBuilder.Options);
         }
     }
 }

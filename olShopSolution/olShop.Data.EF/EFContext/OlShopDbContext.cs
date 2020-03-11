@@ -8,9 +8,9 @@ using System;
 
 namespace olShop.Data.EF.EFContext
 {
-    public class DbContext : IdentityDbContext<AppUser, AppRole, Guid>
+    public class OlShopDbContext : IdentityDbContext<AppUser, AppRole, Guid>
     {
-        public DbContext(DbContextOptions options) : base(options)
+        public OlShopDbContext(DbContextOptions options) : base(options)
         {
 
         }
