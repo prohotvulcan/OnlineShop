@@ -11,6 +11,11 @@ namespace olShop.Data.EF.Configurations
             builder.ToTable("ProductCategories");
 
             builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.Id)
+                .HasMaxLength(20)
+                .IsRequired(true)
+                .UseIdentityColumn();
         }
     }
 }

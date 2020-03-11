@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using olShop.Data.EF.Configurations;
+using olShop.Data.EF.Extensions;
 using olShop.Data.Entities;
 using System;
 
@@ -57,7 +58,7 @@ namespace olShop.Data.EF.EFContext
             #endregion
 
             // seeding
-            
+            builder.SeedData();
         }
 
         public DbSet<Advertistment> Advertistments { get; set; }

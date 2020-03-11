@@ -12,6 +12,11 @@ namespace olShop.Data.EF.Configurations
 
             builder.HasKey(x => x.Id);
 
+            builder.Property(x => x.Id)
+                .HasMaxLength(20)
+                .IsRequired(true)
+                .UseIdentityColumn();
+
             builder.HasOne(x => x.Product)
                 .WithMany(y => y.WholePrices)
                 .HasForeignKey(x => x.ProductId);

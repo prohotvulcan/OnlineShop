@@ -14,7 +14,8 @@ namespace olShop.Data.EF.Configurations
 
             builder.Property(x => x.Id)
                 .HasMaxLength(255)
-                .IsRequired(true);
+                .IsRequired(true)
+                .UseIdentityColumn();
 
             builder.Property(x => x.Name)
                 .HasMaxLength(256)

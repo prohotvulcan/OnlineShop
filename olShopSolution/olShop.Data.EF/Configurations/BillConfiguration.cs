@@ -13,6 +13,11 @@ namespace olShop.Data.EF.Configurations
 
             builder.HasKey(x => x.Id);
 
+            builder.Property(x => x.Id)
+                .HasMaxLength(20)
+                .IsRequired(true)
+                .UseIdentityColumn();
+
             builder.Property(x => x.CustomerName)
                 .HasMaxLength(256)
                 .IsRequired(true);
