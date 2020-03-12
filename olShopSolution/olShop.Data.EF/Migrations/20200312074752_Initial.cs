@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace olShop.Data.EF.Migrations
 {
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,7 +11,7 @@ namespace olShop.Data.EF.Migrations
                 name: "AdvertistmentPages",
                 columns: table => new
                 {
-                    Id = table.Column<string>(nullable: false),
+                    Id = table.Column<string>(maxLength: 20, nullable: false),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -388,7 +388,7 @@ namespace olShop.Data.EF.Migrations
                 name: "Announcements",
                 columns: table => new
                 {
-                    Id = table.Column<string>(nullable: false),
+                    Id = table.Column<string>(maxLength: 128, nullable: false),
                     Title = table.Column<string>(maxLength: 250, nullable: true),
                     Content = table.Column<string>(maxLength: 250, nullable: true),
                     UserId = table.Column<Guid>(nullable: false),
@@ -735,7 +735,7 @@ namespace olShop.Data.EF.Migrations
             migrationBuilder.InsertData(
                 table: "AppRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Description", "Name", "NormalizedName" },
-                values: new object[] { new Guid("af186d00-6d93-4721-ac73-46a8d968c8ed"), "568f2f0a-e24b-410d-a0ad-c1bb8558d6a4", "Top manager", "Admin", "Admin" });
+                values: new object[] { new Guid("af186d00-6d93-4721-ac73-46a8d968c8ed"), "9b164ca9-e990-4343-a3d2-5d3ac848f716", "Top manager", "Admin", "Admin" });
 
             migrationBuilder.InsertData(
                 table: "AppUserRoles",
@@ -745,7 +745,7 @@ namespace olShop.Data.EF.Migrations
             migrationBuilder.InsertData(
                 table: "AppUsers",
                 columns: new[] { "Id", "AccessFailedCount", "Avatar", "Balance", "Birthday", "ConcurrencyStamp", "DateCreated", "DateModified", "Email", "EmailConfirmed", "FullName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "Status", "TwoFactorEnabled", "UserName" },
-                values: new object[] { new Guid("a389bfc2-ed92-4fb5-8705-fd0cb5b48b48"), 0, null, 0m, new DateTime(1993, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "06f74b37-6817-4588-a921-792f46ded18d", new DateTime(2020, 3, 12, 0, 42, 24, 955, DateTimeKind.Local).AddTicks(4079), new DateTime(2020, 3, 12, 0, 42, 24, 956, DateTimeKind.Local).AddTicks(1309), "prohotvulcan@gmail.com", true, "Administrator", false, null, "prohotvulcan@gmail.com", null, "AQAAAAEAACcQAAAAEEGX6/qr1ZF2OuXaSbjZxKPZY6R4FpU2U2p2RM5sAZCU7pn5MCXEnwoPXEuVuX7UBA==", null, false, null, 1, false, "admin" });
+                values: new object[] { new Guid("a389bfc2-ed92-4fb5-8705-fd0cb5b48b48"), 0, null, 0m, new DateTime(1993, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "15e58982-fc32-4a0c-b800-d72594c5d66d", new DateTime(2020, 3, 12, 14, 47, 50, 906, DateTimeKind.Local).AddTicks(9823), new DateTime(2020, 3, 12, 14, 47, 50, 907, DateTimeKind.Local).AddTicks(9824), "prohotvulcan@gmail.com", true, "Administrator", false, null, "prohotvulcan@gmail.com", null, "AQAAAAEAACcQAAAAEA1mSwcp7AdxIMy9gwquiihbrgA50CVFrwUwWgfNuuHtK2sgjhXtqgUiY3A8bj0xUA==", null, false, null, 1, false, "admin" });
 
             migrationBuilder.InsertData(
                 table: "Colors",
@@ -870,26 +870,26 @@ namespace olShop.Data.EF.Migrations
                 columns: new[] { "Id", "CategoryId", "Content", "DateCreated", "DateModified", "Description", "HomeFlag", "HotFlag", "Image", "Name", "OriginalPrice", "Price", "PromotionPrice", "SeoAlias", "SeoDescription", "SeoKeywords", "SeoPageTitle", "Status", "Tags", "Unit", "ViewCount" },
                 values: new object[,]
                 {
-                    { 18, 4, null, new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5657), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 18", 1000m, 1000m, null, "san-pham-18", null, null, null, 1, null, null, null },
-                    { 17, 4, null, new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5655), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 17", 1000m, 1000m, null, "san-pham-17", null, null, null, 1, null, null, null },
-                    { 16, 4, null, new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5652), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 16", 1000m, 1000m, null, "san-pham-16", null, null, null, 1, null, null, null },
-                    { 15, 3, null, new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5650), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 15", 1000m, 1000m, null, "san-pham-15", null, null, null, 1, null, null, null },
-                    { 14, 3, null, new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5648), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 14", 1000m, 1000m, null, "san-pham-14", null, null, null, 1, null, null, null },
-                    { 13, 3, null, new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5646), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 13", 1000m, 1000m, null, "san-pham-13", null, null, null, 1, null, null, null },
-                    { 12, 3, null, new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5644), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 12", 1000m, 1000m, null, "san-pham-12", null, null, null, 1, null, null, null },
-                    { 11, 3, null, new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5642), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 11", 1000m, 1000m, null, "san-pham-11", null, null, null, 1, null, null, null },
-                    { 10, 2, null, new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5640), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 10", 1000m, 1000m, null, "san-pham-10", null, null, null, 1, null, null, null },
-                    { 9, 2, null, new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5638), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 9", 1000m, 1000m, null, "san-pham-9", null, null, null, 1, null, null, null },
-                    { 8, 2, null, new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5636), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 8", 1000m, 1000m, null, "san-pham-8", null, null, null, 1, null, null, null },
-                    { 7, 2, null, new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5634), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 7", 1000m, 1000m, null, "san-pham-7", null, null, null, 1, null, null, null },
-                    { 6, 2, null, new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5631), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 6", 1000m, 1000m, null, "san-pham-6", null, null, null, 1, null, null, null },
-                    { 5, 1, null, new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5628), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 5", 1000m, 1000m, null, "san-pham-5", null, null, null, 1, null, null, null },
-                    { 4, 1, null, new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5626), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 4", 1000m, 1000m, null, "san-pham-4", null, null, null, 1, null, null, null },
-                    { 3, 1, null, new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5624), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 3", 1000m, 1000m, null, "san-pham-3", null, null, null, 1, null, null, null },
-                    { 2, 1, null, new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5575), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 2", 1000m, 1000m, null, "san-pham-2", null, null, null, 1, null, null, null },
-                    { 1, 1, null, new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(2965), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 1", 1000m, 1000m, null, "san-pham-1", null, null, null, 1, null, null, null },
-                    { 19, 4, null, new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5659), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 19", 1000m, 1000m, null, "san-pham-19", null, null, null, 1, null, null, null },
-                    { 20, 4, null, new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5661), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 20", 1000m, 1000m, null, "san-pham-20", null, null, null, 1, null, null, null }
+                    { 18, 4, null, new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 18", 1000m, 1000m, null, "san-pham-18", null, null, null, 1, null, null, null },
+                    { 17, 4, null, new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 17", 1000m, 1000m, null, "san-pham-17", null, null, null, 1, null, null, null },
+                    { 16, 4, null, new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 16", 1000m, 1000m, null, "san-pham-16", null, null, null, 1, null, null, null },
+                    { 15, 3, null, new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 15", 1000m, 1000m, null, "san-pham-15", null, null, null, 1, null, null, null },
+                    { 14, 3, null, new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 14", 1000m, 1000m, null, "san-pham-14", null, null, null, 1, null, null, null },
+                    { 13, 3, null, new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 13", 1000m, 1000m, null, "san-pham-13", null, null, null, 1, null, null, null },
+                    { 12, 3, null, new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 12", 1000m, 1000m, null, "san-pham-12", null, null, null, 1, null, null, null },
+                    { 11, 3, null, new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 11", 1000m, 1000m, null, "san-pham-11", null, null, null, 1, null, null, null },
+                    { 10, 2, null, new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 10", 1000m, 1000m, null, "san-pham-10", null, null, null, 1, null, null, null },
+                    { 9, 2, null, new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 9", 1000m, 1000m, null, "san-pham-9", null, null, null, 1, null, null, null },
+                    { 8, 2, null, new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 8", 1000m, 1000m, null, "san-pham-8", null, null, null, 1, null, null, null },
+                    { 7, 2, null, new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 7", 1000m, 1000m, null, "san-pham-7", null, null, null, 1, null, null, null },
+                    { 6, 2, null, new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 6", 1000m, 1000m, null, "san-pham-6", null, null, null, 1, null, null, null },
+                    { 5, 1, null, new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 5", 1000m, 1000m, null, "san-pham-5", null, null, null, 1, null, null, null },
+                    { 4, 1, null, new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 4", 1000m, 1000m, null, "san-pham-4", null, null, null, 1, null, null, null },
+                    { 3, 1, null, new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 3", 1000m, 1000m, null, "san-pham-3", null, null, null, 1, null, null, null },
+                    { 2, 1, null, new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 2", 1000m, 1000m, null, "san-pham-2", null, null, null, 1, null, null, null },
+                    { 1, 1, null, new DateTime(2020, 3, 12, 14, 47, 50, 946, DateTimeKind.Local).AddTicks(9846), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 1", 1000m, 1000m, null, "san-pham-1", null, null, null, 1, null, null, null },
+                    { 19, 4, null, new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 19", 1000m, 1000m, null, "san-pham-19", null, null, null, 1, null, null, null },
+                    { 20, 4, null, new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, "/client-side/images/products/product-1.jpg", "Product 20", 1000m, 1000m, null, "san-pham-20", null, null, null, 1, null, null, null }
                 });
 
             migrationBuilder.CreateIndex(

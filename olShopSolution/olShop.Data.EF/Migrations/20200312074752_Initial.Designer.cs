@@ -10,8 +10,8 @@ using olShop.Data.EF.EFContext;
 namespace olShop.Data.EF.Migrations
 {
     [DbContext(typeof(OlShopDbContext))]
-    [Migration("20200311174225_initial")]
-    partial class initial
+    [Migration("20200312074752_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -175,7 +175,8 @@ namespace olShop.Data.EF.Migrations
             modelBuilder.Entity("olShop.Data.Entities.AdvertistmentPage", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(20);
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -246,7 +247,8 @@ namespace olShop.Data.EF.Migrations
             modelBuilder.Entity("olShop.Data.Entities.Announcement", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(128)")
+                        .HasMaxLength(128);
 
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(250)")
@@ -330,7 +332,7 @@ namespace olShop.Data.EF.Migrations
                         new
                         {
                             Id = new Guid("af186d00-6d93-4721-ac73-46a8d968c8ed"),
-                            ConcurrencyStamp = "568f2f0a-e24b-410d-a0ad-c1bb8558d6a4",
+                            ConcurrencyStamp = "9b164ca9-e990-4343-a3d2-5d3ac848f716",
                             Description = "Top manager",
                             Name = "Admin",
                             NormalizedName = "Admin"
@@ -417,15 +419,15 @@ namespace olShop.Data.EF.Migrations
                             AccessFailedCount = 0,
                             Balance = 0m,
                             Birthday = new DateTime(1993, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "06f74b37-6817-4588-a921-792f46ded18d",
-                            DateCreated = new DateTime(2020, 3, 12, 0, 42, 24, 955, DateTimeKind.Local).AddTicks(4079),
-                            DateModified = new DateTime(2020, 3, 12, 0, 42, 24, 956, DateTimeKind.Local).AddTicks(1309),
+                            ConcurrencyStamp = "15e58982-fc32-4a0c-b800-d72594c5d66d",
+                            DateCreated = new DateTime(2020, 3, 12, 14, 47, 50, 906, DateTimeKind.Local).AddTicks(9823),
+                            DateModified = new DateTime(2020, 3, 12, 14, 47, 50, 907, DateTimeKind.Local).AddTicks(9824),
                             Email = "prohotvulcan@gmail.com",
                             EmailConfirmed = true,
                             FullName = "Administrator",
                             LockoutEnabled = false,
                             NormalizedEmail = "prohotvulcan@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEGX6/qr1ZF2OuXaSbjZxKPZY6R4FpU2U2p2RM5sAZCU7pn5MCXEnwoPXEuVuX7UBA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEA1mSwcp7AdxIMy9gwquiihbrgA50CVFrwUwWgfNuuHtK2sgjhXtqgUiY3A8bj0xUA==",
                             PhoneNumberConfirmed = false,
                             Status = 1,
                             TwoFactorEnabled = false,
@@ -1262,7 +1264,7 @@ namespace olShop.Data.EF.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            DateCreated = new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(2965),
+                            DateCreated = new DateTime(2020, 3, 12, 14, 47, 50, 946, DateTimeKind.Local).AddTicks(9846),
                             DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "/client-side/images/products/product-1.jpg",
                             Name = "Product 1",
@@ -1275,7 +1277,7 @@ namespace olShop.Data.EF.Migrations
                         {
                             Id = 2,
                             CategoryId = 1,
-                            DateCreated = new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5575),
+                            DateCreated = new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847),
                             DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "/client-side/images/products/product-1.jpg",
                             Name = "Product 2",
@@ -1288,7 +1290,7 @@ namespace olShop.Data.EF.Migrations
                         {
                             Id = 3,
                             CategoryId = 1,
-                            DateCreated = new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5624),
+                            DateCreated = new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847),
                             DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "/client-side/images/products/product-1.jpg",
                             Name = "Product 3",
@@ -1301,7 +1303,7 @@ namespace olShop.Data.EF.Migrations
                         {
                             Id = 4,
                             CategoryId = 1,
-                            DateCreated = new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5626),
+                            DateCreated = new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847),
                             DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "/client-side/images/products/product-1.jpg",
                             Name = "Product 4",
@@ -1314,7 +1316,7 @@ namespace olShop.Data.EF.Migrations
                         {
                             Id = 5,
                             CategoryId = 1,
-                            DateCreated = new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5628),
+                            DateCreated = new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847),
                             DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "/client-side/images/products/product-1.jpg",
                             Name = "Product 5",
@@ -1327,7 +1329,7 @@ namespace olShop.Data.EF.Migrations
                         {
                             Id = 6,
                             CategoryId = 2,
-                            DateCreated = new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5631),
+                            DateCreated = new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847),
                             DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "/client-side/images/products/product-1.jpg",
                             Name = "Product 6",
@@ -1340,7 +1342,7 @@ namespace olShop.Data.EF.Migrations
                         {
                             Id = 7,
                             CategoryId = 2,
-                            DateCreated = new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5634),
+                            DateCreated = new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847),
                             DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "/client-side/images/products/product-1.jpg",
                             Name = "Product 7",
@@ -1353,7 +1355,7 @@ namespace olShop.Data.EF.Migrations
                         {
                             Id = 8,
                             CategoryId = 2,
-                            DateCreated = new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5636),
+                            DateCreated = new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847),
                             DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "/client-side/images/products/product-1.jpg",
                             Name = "Product 8",
@@ -1366,7 +1368,7 @@ namespace olShop.Data.EF.Migrations
                         {
                             Id = 9,
                             CategoryId = 2,
-                            DateCreated = new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5638),
+                            DateCreated = new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847),
                             DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "/client-side/images/products/product-1.jpg",
                             Name = "Product 9",
@@ -1379,7 +1381,7 @@ namespace olShop.Data.EF.Migrations
                         {
                             Id = 10,
                             CategoryId = 2,
-                            DateCreated = new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5640),
+                            DateCreated = new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847),
                             DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "/client-side/images/products/product-1.jpg",
                             Name = "Product 10",
@@ -1392,7 +1394,7 @@ namespace olShop.Data.EF.Migrations
                         {
                             Id = 11,
                             CategoryId = 3,
-                            DateCreated = new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5642),
+                            DateCreated = new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847),
                             DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "/client-side/images/products/product-1.jpg",
                             Name = "Product 11",
@@ -1405,7 +1407,7 @@ namespace olShop.Data.EF.Migrations
                         {
                             Id = 12,
                             CategoryId = 3,
-                            DateCreated = new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5644),
+                            DateCreated = new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847),
                             DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "/client-side/images/products/product-1.jpg",
                             Name = "Product 12",
@@ -1418,7 +1420,7 @@ namespace olShop.Data.EF.Migrations
                         {
                             Id = 13,
                             CategoryId = 3,
-                            DateCreated = new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5646),
+                            DateCreated = new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847),
                             DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "/client-side/images/products/product-1.jpg",
                             Name = "Product 13",
@@ -1431,7 +1433,7 @@ namespace olShop.Data.EF.Migrations
                         {
                             Id = 14,
                             CategoryId = 3,
-                            DateCreated = new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5648),
+                            DateCreated = new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847),
                             DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "/client-side/images/products/product-1.jpg",
                             Name = "Product 14",
@@ -1444,7 +1446,7 @@ namespace olShop.Data.EF.Migrations
                         {
                             Id = 15,
                             CategoryId = 3,
-                            DateCreated = new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5650),
+                            DateCreated = new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847),
                             DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "/client-side/images/products/product-1.jpg",
                             Name = "Product 15",
@@ -1457,7 +1459,7 @@ namespace olShop.Data.EF.Migrations
                         {
                             Id = 16,
                             CategoryId = 4,
-                            DateCreated = new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5652),
+                            DateCreated = new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847),
                             DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "/client-side/images/products/product-1.jpg",
                             Name = "Product 16",
@@ -1470,7 +1472,7 @@ namespace olShop.Data.EF.Migrations
                         {
                             Id = 17,
                             CategoryId = 4,
-                            DateCreated = new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5655),
+                            DateCreated = new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847),
                             DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "/client-side/images/products/product-1.jpg",
                             Name = "Product 17",
@@ -1483,7 +1485,7 @@ namespace olShop.Data.EF.Migrations
                         {
                             Id = 18,
                             CategoryId = 4,
-                            DateCreated = new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5657),
+                            DateCreated = new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847),
                             DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "/client-side/images/products/product-1.jpg",
                             Name = "Product 18",
@@ -1496,7 +1498,7 @@ namespace olShop.Data.EF.Migrations
                         {
                             Id = 19,
                             CategoryId = 4,
-                            DateCreated = new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5659),
+                            DateCreated = new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847),
                             DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "/client-side/images/products/product-1.jpg",
                             Name = "Product 19",
@@ -1509,7 +1511,7 @@ namespace olShop.Data.EF.Migrations
                         {
                             Id = 20,
                             CategoryId = 4,
-                            DateCreated = new DateTime(2020, 3, 12, 0, 42, 24, 974, DateTimeKind.Local).AddTicks(5661),
+                            DateCreated = new DateTime(2020, 3, 12, 14, 47, 50, 947, DateTimeKind.Local).AddTicks(9847),
                             DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Image = "/client-side/images/products/product-1.jpg",
                             Name = "Product 20",
