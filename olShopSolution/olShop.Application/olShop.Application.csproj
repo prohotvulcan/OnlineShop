@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\olShop.Data\olShop.Data.csproj" />
+    <ProjectReference Include="..\olShop.Utilities\olShop.Utilities.csproj" />
   </ItemGroup>
 
 </Project>
