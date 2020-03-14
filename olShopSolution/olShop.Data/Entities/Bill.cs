@@ -55,15 +55,15 @@ namespace olShop.Data.Entities
             string customerMobile, string customerMessage,
             BillStatus billStatus, PaymentMethod paymentMethod, Status status, Guid? customerId)
         {
-            Id = id;
-            CustomerName = customerName;
-            CustomerAddress = customerAddress;
-            CustomerMobile = customerMobile;
-            CustomerMessage = customerMessage;
-            BillStatus = billStatus;
-            PaymentMethod = paymentMethod;
-            Status = status;
-            CustomerId = customerId;
+            this.Id = id;
+            this.CustomerName = customerName;
+            this.CustomerAddress = customerAddress;
+            this.CustomerMobile = customerMobile;
+            this.CustomerMessage = customerMessage;
+            this.BillStatus = billStatus;
+            this.PaymentMethod = paymentMethod;
+            this.Status = status;
+            this.CustomerId = customerId;
         }
     }
 }
