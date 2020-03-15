@@ -29,7 +29,7 @@ namespace olShop.Application.ViewModels.Product
 
         public Guid? CustomerId { get; set; }
 
-        public List<BillViewModel> BillDetails { get; set; }
+        public List<BillDetailViewModel> BillDetails { get; set; }
 
         public AppUserViewModel User { get; set; }
     }
