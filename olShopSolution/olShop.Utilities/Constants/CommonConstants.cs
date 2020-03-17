@@ -1,6 +1,6 @@
 ﻿namespace olShop.Utilities.Constants
 {
-    public class CommonContants
+    public class CommonConstants
     {
         public const string DefaultFooterId = "DefaultFooterId";
         public const string DefaultContactId = "DefaultContactId";

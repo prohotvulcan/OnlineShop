@@ -53,7 +53,7 @@ namespace olShop.Data.EF.Extensions
             modelBuilder.Entity<Contact>().HasData(
                 new Contact
                 {
-                    Id = CommonContants.DefaultContactId,
+                    Id = CommonConstants.DefaultContactId,
                     Address = "Mau Than - Xuan Khanh - Ninh Kieu - Can Tho",
                     Email = "onlineshop@gmail.com",
                     Name = "Online Shop",
@@ -97,7 +97,7 @@ namespace olShop.Data.EF.Extensions
                 new Function { Id = "READER", Name = "Reader Report", ParentId = "REPORT", SortOrder = 3, Status = Status.Active, URL = "/admin/report/reader", IconCss = "fa-bar-chart-o" });
 
             // footer
-            modelBuilder.Entity<Footer>().HasData(new Footer { Id = CommonContants.DefaultFooterId, Content = "Footer" });
+            modelBuilder.Entity<Footer>().HasData(new Footer { Id = CommonConstants.DefaultFooterId, Content = "Footer" });
 
             // color
             modelBuilder.Entity<Color>().HasData(

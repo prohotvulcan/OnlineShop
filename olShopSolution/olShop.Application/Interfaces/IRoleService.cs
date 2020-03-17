@@ -18,7 +18,7 @@ namespace olShop.Application.Interfaces
 
         PagedResult<AppRoleViewModel> GetAllPagingAsync(string keyword, int page, int pageSize);
 
-        Task<AppRoleViewModel> GetById(int id);
+        Task<AppRoleViewModel> GetById(Guid id);
 
         Task UpdateAsync(AppRoleViewModel appRoleVm);
 

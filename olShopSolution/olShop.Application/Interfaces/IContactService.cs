@@ -10,7 +10,7 @@ namespace olShop.Application.Interfaces
 
         void Update(ContactViewModel contactVm);
 
-        void Delete(int id);
+        void Delete(string id);
 
         List<ContactViewModel> GetAll();
 

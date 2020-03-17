@@ -51,7 +51,7 @@ namespace olShop.Application.Service
                         {
                             Id = tagId,
                             Name = t,
-                            Type = CommonContants.BlogTag
+                            Type = CommonConstants.BlogTag
                         };
                         _tagRepository.Add(tag);
                     }
@@ -180,7 +180,7 @@ namespace olShop.Application.Service
         public List<TagViewModel> GetListTag(string searchText)
         {
             return _tagRepository
-                .FindAll(x => x.Type == CommonContants.ProductTag && x.Name.Contains(searchText))
+                .FindAll(x => x.Type == CommonConstants.ProductTag && x.Name.Contains(searchText))
                 .ProjectTo<TagViewModel>(_mapper.ConfigurationProvider)
                 .ToList();
         }
@@ -255,7 +255,7 @@ namespace olShop.Application.Service
                         {
                             Id = tagId,
                             Name = t,
-                            Type = CommonContants.ProductTag
+                            Type = CommonConstants.ProductTag
                         };
                         _tagRepository.Add(tag);
                     }

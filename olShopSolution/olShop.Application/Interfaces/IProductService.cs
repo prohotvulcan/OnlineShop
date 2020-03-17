@@ -11,11 +11,11 @@ namespace olShop.Application.Interfaces
 
         void Update(ProductViewModel productVm);
 
-        void Delete(ProductViewModel productVm);
+        void Delete(int id);
 
         List<ProductViewModel> GetAll();
 
-        PagedResult<ProductViewModel> GetAllPaging(string keyword, int page, int pageSize);
+        PagedResult<ProductViewModel> GetAllPaging(int? categoryId, string keyword, int page, int pageSize);
 
         ProductViewModel GetById(int id);
 
