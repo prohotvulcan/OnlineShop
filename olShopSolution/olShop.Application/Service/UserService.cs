@@ -5,12 +5,10 @@ using Microsoft.EntityFrameworkCore;
 using olShop.Application.Interfaces;
 using olShop.Application.ViewModels.System;
 using olShop.Data.Entities;
-using olShop.Infrastructure.Interfaces;
 using olShop.Utilities.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace olShop.Application.Service
