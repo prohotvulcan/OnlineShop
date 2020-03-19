@@ -21,6 +21,15 @@ using Microsoft.AspNetCore.Mvc.Razor;
 using Newtonsoft.Json.Serialization;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
+using olShop.WebApp.Services;
+using olShop.Infrastructure.Interfaces;
+using olShop.Data.EF;
+using olShop.Application.Interfaces;
+using olShop.Application.Service;
+using olShop.WebApp.Authorization;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace olShop.WebApp
 {
@@ -88,9 +97,6 @@ namespace olShop.WebApp
             services.AddSingleton(mappingConfig.CreateMapper());
             services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(), sp.GetService));
 
-            // email sender
-            // view render
-
             services.AddScoped<IUserClaimsPrincipalFactory<AppUser>, CustomClaimsPrincipalFactory>();
 
             services.AddMvc(options =>
@@ -112,6 +118,8 @@ namespace olShop.WebApp
                 .AddDataAnnotationsLocalization()
                 .AddNewtonsoftJson(
                 options => options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver());
+
+            services.AddLocalization(options => { options.ResourcesPath = "Resources"; });
 
             services.AddCors(options => options.AddPolicy("CorsPolicy",
                 builder =>
@@ -138,17 +146,41 @@ namespace olShop.WebApp
                   opts.SupportedUICultures = supportedCultures;
               });
 
-            // DI configure
+            #region DI configure
+            services.AddTransient<IEmailSender, EmailSender>();
+            services.AddTransient<IViewRenderService, ViewRenderService>();
+            services.AddTransient<IUnitOfWork, EFUnitOfWork>();
+            services.AddTransient(typeof(IRepository<,>), typeof(EFRepositoryBase<,>));
 
-            services.AddControllersWithViews();
+            services.AddTransient<IProductCategoryService, ProductCategoryService>();
+            services.AddTransient<IFunctionService, FunctionService>();
+            services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IRoleService, RoleService>();
+            services.AddTransient<IBillService, BillService>();
+            services.AddTransient<IBlogService, BlogService>();
+            services.AddTransient<ICommonService, CommonService>();
+            services.AddTransient<IFeedbackService, FeedbackService>();
+            services.AddTransient<IContactService, ContactService>();
+            services.AddTransient<IPageService, PageService>();
+            //services.AddTransient<IReportService, ReportService>();
+            services.AddTransient<IAnnouncementService, AnnouncementService>();
+
+            services.AddTransient<IAuthorizationHandler, BaseResourceAuthorizationHandler>();
+            #endregion
+
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
+            loggerFactory.AddFile("Logs/shop-{Date}.txt");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                app.UseDatabaseErrorPage();
             }
             else
             {
@@ -156,19 +188,33 @@ namespace olShop.WebApp
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            app.UseImageResizer();
+            app.UseMinResponse();
+            app.UseSession();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
+
+            var options = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
+            app.UseRequestLocalization(options.Value);
+            app.UseCors("CorsPolicy");
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
+                    name: "areaRoute",
+                    pattern: "{area:exists}/{controller=Login}/{action=Index}/{id?}");
             });
+
+
         }
     }
 }
