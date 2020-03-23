@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="wwwroot\client-side\" />
   </ItemGroup>
 
 
