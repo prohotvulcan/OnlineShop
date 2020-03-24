@@ -1,8 +1,42 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = Model.Title;
+    ViewData["Metakeyword"] = Model.MetaKeyword;
+    ViewData["MetaDescription"] = Model.MetaDescription;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+@section Scripts{
+    <script src="~/client-app/controllers/home/index.js"></script>
+    <script>
+        var homeObj = new HomeController();
+        homeObj.initialize();
+    </script>
+}
+
+<!-- Slideshow -->
+<div class="main-slider" id="home">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-12 banner-left hidden-xs">
+                <img src="~/client-side/images/banner-left.jpg" />
+            </div>
+            <div class="col-sm-9 col-md-9 col-lg-9 col-xs-12 jtv-slideshow">
+                <div id="jtv-slideshow">
+                    <div id="rev_slider_4_wrapper" class="rev_slider_wrapper fullwidthbanner-container">
+                        <div id="rev_slider_4" class="rev_slider fullwidthabanner">
+                            <ul>
+                                @foreach (var slide in Model.HomeSlides)
+                                {
+                                    <li data-transition="fade" data-slotamount="7" data-masterspeed='1000' data-thumb=''>
+                                        <img src="@slide.Image" data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="@slide.Name" />
+                                    </li>
+                                }
+                            </ul>
+                            <div class="tp-bannertimer"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

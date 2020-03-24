@@ -23,8 +23,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Models\ManageViewModels\" />
+    <Folder Include="Models\ProductViewModels\" />
     <Folder Include="Resources\" />
     <Folder Include="wwwroot\client-side\" />
+    <Folder Include="wwwroot\bundled\" />
   </ItemGroup>
 
 

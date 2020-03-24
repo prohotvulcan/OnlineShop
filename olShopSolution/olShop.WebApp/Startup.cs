@@ -92,7 +92,7 @@ namespace olShop.WebApp
 
             var mappingConfig = AutoMapperConfig.RegisterMappings();
             services.AddSingleton(mappingConfig.CreateMapper());
-            services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(), sp.GetService));
+            //services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(), sp.GetService));
 
             services.AddScoped<IUserClaimsPrincipalFactory<AppUser>, CustomClaimsPrincipalFactory>();
 

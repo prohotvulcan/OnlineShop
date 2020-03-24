@@ -26,6 +26,7 @@ namespace olShop.Application.AutoMapper
             CreateMap<BillDetail, BillDetailViewModel>().MaxDepth(2);
             CreateMap<Color, ColorViewModel>().MaxDepth(2);
             CreateMap<Product, ProductViewModel>().MaxDepth(2);
+
             CreateMap<ProductCategory, ProductCategoryViewModel>().MaxDepth(2);
             CreateMap<ProductImage, ProductImageViewModel>().MaxDepth(2);
             CreateMap<ProductQuantity, ProductQuantityViewModel>().MaxDepth(2);
